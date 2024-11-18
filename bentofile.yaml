@@ -1,0 +1,22 @@
+service: "src.service:rf_service"
+description: "Random Forest Classifier Service for predicting accidents"
+labels:
+  owner: "Thibault BEZPALKO"
+  project: "accident_prediction"
+
+include:
+  - src/
+  - data/
+
+docker:
+  dockerfile_template: /home/ubuntu/DST_MLOPS_02_DVC_03_BentoML/src/docker/Dockerfile
+
+python:
+  packages:
+    - numpy
+    - pandas
+    - scikit-learn
+    - bentoml
+    - pydantic
+    - requests
+    - pyjwt
